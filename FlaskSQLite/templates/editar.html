@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Editar Produto</title></head>
+<body>
+    <h1>Editar Produto</h1>
+    <form method="POST">
+        Descrição: <input type="text" name="descricao" value="{{ produto[1] }}"><br>
+        Preço Compra: <input type="number" step="0.01" name="precocompra" value="{{ produto[2] }}"><br>
+        Preço Venda: <input type="number" step="0.01" name="precovenda" value="{{ produto[3] }}"><br>
+        <input type="submit" value="Atualizar">
+    </form>
+    <a href="/produtos/listar">Voltar</a>
+</body>
+</html>

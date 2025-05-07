@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Produtos</title>
+</head>
+<body>
+    <h1>Produtos Cadastrados</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descrição</th>
+                <th>Preço Compra</th>
+                <th>Preço Venda</th>
+                <th>Data Criação</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for id, descricao, compra, venda, data in regs %}
+            <tr>
+                <td>{{ id }}</td>
+                <td>{{ descricao }}</td>
+                <td>R$ {{ compra }}</td>
+                <td>R$ {{ venda }}</td>
+                <td>{{ data }}</td>
+                <td>
+                    <a href="/produtos/editar/{{ id }}">Editar</a>
+                    <form method="POST" action="/produtos/deletar/{{ id }}" style="display:inline;">
+                        <button type="submit" onclick="return confirm('Tem certeza que deseja deletar?')">Deletar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/produtos/cadastrar">Cadastrar Novo Produto</a>
+</body>
+</html>
